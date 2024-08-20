@@ -12,7 +12,7 @@ declare var process : {
 // the Netlify build hook to rebuild your site
 const rebuildSite = async (triggerTitle: string) => {
     // Construct the URL for the Netlify rebuild hook
-    const url = new URL("https://api.netlify.com/build_hooks/66c4c7b9ee22f312038980eb");
+    const url = new URL(process.env.NETLIFY_REBUILD_HOOK);
 
     // Add the title to the query string
     url.searchParams.append('trigger_title', triggerTitle);
@@ -25,11 +25,11 @@ const rebuildSite = async (triggerTitle: string) => {
 
 // Always update your footer every year! :)
 export default async (request: Request) => {
-    await rebuildSite('Happy New Year 2022!');
+    await rebuildSite('Certification Pages');
 };
 
 // Netlify scheduled function cron syntax
 // Run every year on the 1st of January at 00:00
 export const config: Config = {
-    schedule: '00 17 20 8 *'
+    schedule: '04 17 20 8 *'
 };

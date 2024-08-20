@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@netlify/functions": "github:netlify/functions"
-  }
-}
